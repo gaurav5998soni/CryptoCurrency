@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>White Coin</title>
+<link rel="stylesheet"type="text/css"href="vendors/css/normalize.css">
+<link rel="stylesheet"type="text/css"href="vendors/css/grid.css"> 
+      
+ 
+<link rel = "stylesheet"type="text/css"href="{% static 'Crypt/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+<style>
+    
+
+
+</style>
+      
+</head>
+
+<body>
+    <header>
+        <nav>
+        <div class="row">
+        <img src="{% static 'Crypt/icon.png' %}" alt="logo" width=100 height=100 class="logo" style="border: 2px solid white; border-radius: 50%">
+        <ul class="main-nav">  
+        <li><a href="#">About Us</a></li>    
+        <li><a href="#">Privacy Policy</a></li>    
+        <li><a href="#">Our Services</a></li>    
+            
+        </ul>
+        </div>
+        </nav>
+     <div class="hero-text-box">
+     <h1>THE CRYPTOCURRENCY FOR PAYMENTS
+         <br/>
+         Based on Blockchain Technology</h1>
+         <a class ="btn btn-full"  href="{% url 'login' %}">Log in</a>       
+         <a class="btn btn-ghost" href="{% url 'signup' %}">Sign Up</a>       
+         <a class="btn btn-ghost" href="{% url 'msignup' %}">Do Mining</a>       
+        
+     </div> 
+    
+    </header>
+    
+    <section class="section-features">
+    <div class="row">
+        <h2>Fetures of White Coin</h2>
+         <p class="long-copy">
+        This are the following features:
+         </p>        
+        </div>
+    <div class="row">
+        <div class="col span-1-of-2 box">
+        <h3>BlockChain</h3>
+            <p>The Litecoin blockchain is capable of handling higher transaction volume than its counterpart - Bitcoin. Due to more frequent block generation, the network supports more transactions without a need to modify the software in the future. 
+As a result, merchants get faster confirmation times, while still having ability to wait for more confirmations when selling bigger ticket items.
+            </p>
+        </div>
+         <div class="col span-1-of-2 box">
+        <h3>Mining Reward</h3>
+            <p>
+              Miners are currently awarded with 25 new litecoins per block, an amount which gets halved roughly every 4 years (every 840,000 blocks). 
+              The Litecoin network is therefore scheduled to produce 84 million litecoins, which is 4 times as many currency units as Bitcoin.
+            </p>
+        </div>
+<!--
+         <div class="col span-1-of-4 box">
+        <h3>100% secure</h3>
+            <p>
+                The first thought which a user gets before using a website is of security. Here at Fluffs we are working 24*7 to keep your data secure.So just leave all your data security issues on us and enjoy!
+            </p>
+        </div>
+         <div class="col span-1-of-4 box">
+        <h3>Provide free web space</h3>
+            <p>
+               Members of Fluffs don't need to own or share web servers. They can publish their content on the free space provided by us.
+            </p>
+        </div>
+-->
+        </div>
+    
+    
+    </section>
+
+    
+   
+    
+    <footer>
+       <div class="row">
+        <div class="col span-1-of-2">
+           <ul class="footer-nav">
+            <li><a href ="#">About Us</a></li>
+               <li><a href ="#">Privacy Policy</a></li>
+                <li><a href ="#">Services</a></li>
+               <li><a href ="#">Contact Us</a></li>
+            </ul>
+           </div>
+           <div class="col span-1-of-2">
+              <ul class="social-links">
+                <img src="resources/img/social.gif" class="social"> 
+           </ul>
+           </div>
+        </div>
+      <div class="row">
+        <p>Copyright &copy; 2019 by Fluffs. All rights reserved. A private site handeled by team Fluffs </p>
+        </div>
+    </footer>
+    </body>
+</html>
+

@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <link rel = "stylesheet"type="text/css"href="resources/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+        <style>
+        *{
+            font-family: 'Crimson Text', serif;
+
+        }
+            body,html{
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+            }
+            
+            .header{
+                margin-top: -25px;
+                width:100%;
+                height: 100px;
+                background: #3c3c3c;
+                color:aliceblue;
+
+            }
+            .header h1{
+                padding: 30px 0px 0px 20px;
+            }
+            .header button{
+                position: relative;
+                top:-40px;
+                right: 10px;
+                float: right;
+                background: red;
+                color:#fff;
+            }
+
+            form{
+                padding: 10px;
+                border-radius: 5px;
+                background: #AA00FF;
+                color: #fff;
+                box-shadow: 0 18px 6px -6px #777;
+            }
+            
+            .content{
+                width: 100%;
+                padding: 10px;
+                
+            }
+            
+            .content .user b{
+                font-size: 40px;
+            }
+            
+            .content .user form{
+                width: 500px;
+                background: #8d8d81;
+                padding: 20px;
+                border-radius: 5px;
+            }
+            
+            #chartContainer{
+                margin-right:-80px;
+                float:right;
+                background: #D500F9;
+                border: solid 30px #7E57C2;
+                border-radius: 4px;
+                box-shadow: 0 18px 6px -6px #777;
+
+            }
+
+            .badge{
+                margin: 15px;
+                margin-left: 0px; 
+                font-size: 20px;
+                width: auto;
+                height: auto;
+                padding: 15px;
+                background: #4c4c4c;
+                color: #fff;
+                border-radius: 4px;
+            }
+
+
+
+        </style>
+    </head>          
+<body>
+
+    <div class="header">
+        <h1>Byte Coin</h1>
+        <a href="{% url 'logout' %}"><button class="btn btn-full">Log Out</button></a>
+    </div>
+
+    <div class="user container-fluid">
+       <div class="badge">Welcome {{user.username}}</div>
+        <div class="badge">Balance : {{profile.balance}} Coin</div>
+    </div>  
+    
+    <div class="row container">
+        <div class="col-sm-6">
+             <form action="{% url 'sendcoin' %}" method="POST">
+                {%csrf_token%}
+              <h4> Send Coin </h4>
+                
+            <div class="form-group">
+        <label for="email">To (reciever email):</label>
+        <input type="email" name="email" class="form-control" id="email">
+  </div>      
+  <div class="form-group">
+    <label for="amt">Amount:</label>
+    <input class="form-control" name="amount" id="amt" >
+  </div>              
+  <div class="form-group">
+    <label for="pwd">Transaction Password:</label>
+    <input type="password" name="password" class="form-control" id="pwd">
+  </div>
+  <button type="submit" class="btn btn-default btn-success">Send Coins</button>
+</form>
+
+        </div>
+        <div class="col-sm-6">
+    <div id="chartContainer" style="height: 310px; width: 500px;"></div>
+
+        </div>
+    </div>
+
+            
+           
+
+        </div>
+        <div class=""></div>
+
+
+    </div>    
+    
+  
+        
+        
+    
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Byte Coin Rate"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 450 },
+			{ y: 414},
+			{ y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ y: 460 },
+			{ y: 450 },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 480 },
+			{ y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: 500 },
+			{ y: 480 },
+			{ y: 510 }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+    
+</body>
+</html>
